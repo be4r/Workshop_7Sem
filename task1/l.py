@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 
 '''
-2xLINKED LIST, well, sorta
-by BE4R, fri 13.09.2019 11:10
-
+INPUT : 
+    (1->2->3->4) + (1->2->3->4)
+    no spaces between arrows '->' and numbers
+    numbers are written backwards, it is equivalent to 4321 + 4321
+OUTPUT:
+    (2->4->6->8)
+    which is 8642
 '''
 
 class link:
@@ -52,7 +56,7 @@ class l:
             perenos_desyatkov_na_sleduyushuyu_iteration = sum // 10
             h1 = h1.next
             h2 = h2.next
-        res.append(h1.val + h2.val +             perenos_desyatkov_na_sleduyushuyu_iteration)
+        res.append(h1.val + h2.val + perenos_desyatkov_na_sleduyushuyu_iteration)
         for i in range(dif):
             if dif > 0:
                 self.pop()
