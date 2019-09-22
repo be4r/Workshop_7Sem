@@ -21,22 +21,6 @@ class l:
     tail = 0
 
     def __init__(self, val):
-        '''
-#  прямая запись числа
-#  доделать сложение в этой форме параллельно с уже существующим
-#  "обратным" сложением не удалось
-
-        self.tail = link(val % 10)
-        t = self.tail
-        while val > 0:
-            val //= 10
-            if val == 0:
-                break
-            t.prev = link(val % 10)
-            t.prev.next = t
-            t = t.prev
-        self.head = t
-        '''
         self.head = link(val % 10)
         t = self.head
         while val > 0:
@@ -219,5 +203,8 @@ class l:
 
 
 if __name__ == "__main__":
-    while True:
-        print(eval(input()))
+    s = input()
+    a, b = s.split("+")
+    a = int(("".join(a.replace(')','').replace('(','').split('->')))[::-1])
+    b = int(("".join(b.replace(')','').replace('(','').split('->')))[::-1])
+    print(l(a) + l(b))
