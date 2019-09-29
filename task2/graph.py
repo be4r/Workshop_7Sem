@@ -36,11 +36,11 @@ class Graph:
         visited = ''
         for i in self.vert:
             if not i in visited:
-                print(i)
+                print(i, end=' ')
                 visited += i
             for j in self.vert[i]:
                 if not j in visited:
-                    print(j)
+                    print(j, end=' ')
                     visited += j
 
 
@@ -49,17 +49,16 @@ class Graph:
         sup = 0
         for i in self.vert:
             sup = len(i) if len(i) > sup else sup
-        print("max: ", sup)
         for j in range(sup):
             for i in self.vert:
-                print(i[j] if len(i) > j else '')
+                print(i[j] if len(i) > j else '', end=' ')
 
 
 if __name__ == '__main__':
-    a = [[0, 3], [1, 3], [2, 3], [4, 3], [5, 4], [2, 6]]
-    b = Graph(a)
-    print(b)
-    b.bfs()
-    print("!!!!!")
-    b.dfs()
-    print("!!!!!")
+    G = Graph(eval(input()))
+    #[[0, 3], [1, 3], [2, 3], [4, 3], [5, 4], [2, 6]]
+    print(G)
+    G.bfs()
+    print()
+    G.dfs()
+    print()
