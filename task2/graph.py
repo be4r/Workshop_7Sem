@@ -40,17 +40,16 @@ class Graph:
     def dfs(self, visited, start):
         "deepth"
         visited += start
-        print(start, end=' ')
         for i in self.vert[start]:
             if not i in visited:
                 self.dfs(visited, i)
+        return ' '.join(list(visited))
 
-    def bfs(self, start):
+    def bfs(self, start, returnPath=False):
         "broad"
         que = start
-        pth = {start:'-1'}
+        pth = {start: '-1'}
         visited = start
-        print(start, end=' ')
         while que:
             cur = que[0]
             que = que[1:]
@@ -59,15 +58,24 @@ class Graph:
                     visited += i
                     que += i
                     pth[i] = cur
-                    print(i, end=' ')
-        return pth
+        if returnPath:
+            return pth
+        else:
+            return ' '.join(list(visited))
+
+    def findpath(self, start, end):
+        "shortest path from Start to End"
+        pth = self.bfs(start, returnPath=True)
+        path = ''
+        vert = end
+        while vert != '-1':
+            path += vert
+            vert = pth[vert]
+        return path[::-1]
 
 if __name__ == '__main__':
     #G = Graph(eval(input()))
     G = Graph([[0, 3], [1, 3], [2, 3], [4, 3], [5, 4], [2, 6]])
     #print(G)
-    print()
-    G.bfs(G.allvert[0])
-    print()
-    G.dfs([], G.allvert[0])
-    print()
+    print('Breadth-first search:\t', G.bfs(G.allvert[0]))
+    print('Deepth-first search:\t', G.dfs([], G.allvert[0]))
