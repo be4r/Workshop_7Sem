@@ -34,4 +34,12 @@ if __name__ == '__main__':
     #V = [[0,3,5],[1,3,11],[2,3,56],[4,3,77],[5,4,89]]
     V = list(list(int(j) for j in i.split(',')) for i in input()[2:-2].split('],[')) #eval unsafe
     G = Graph(V)
+    P = G.bfs('0')
+    path = ''
+    v = '4'
+    print()
+    while v != '-1':
+        path += v
+        v = P[v]
+    print(path[::-1])
     print(findpath(G, '0', '4'))
