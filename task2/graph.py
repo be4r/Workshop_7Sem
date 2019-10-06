@@ -45,7 +45,7 @@ class Graph:
                 self.dfs(visited, i)
         return ' '.join(list(visited))
 
-    def bfs(self, start, returnPath=False):
+    def bfs(self, start, return_path=False):
         "broad"
         que = start
         pth = {start: '-1'}
@@ -58,14 +58,11 @@ class Graph:
                     visited += i
                     que += i
                     pth[i] = cur
-        if returnPath:
-            return pth
-        else:
-            return ' '.join(list(visited))
+        return pth if return_path else ' '.join(list(visited))
 
     def findpath(self, start, end):
         "shortest path from Start to End"
-        pth = self.bfs(start, returnPath=True)
+        pth = self.bfs(start, return_path=True)
         path = ''
         vert = end
         while vert != '-1':
