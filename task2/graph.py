@@ -16,8 +16,8 @@ class Graph:
     w = {}
     def __init__(self, edges):
         for i in edges:
-            s_0 = str(i[0]) #cmon man this is SNAKE CASE and IT SHLD BE respected
-            s_1 = str(i[1]) #much better name than s0 and s1(which suck too but still)
+            s_0 = str(i[0])
+            s_1 = str(i[1])
             self.vert[s_0] = self.vert[s_0] + s_1 if self.vert.get(s_0) else s_1
             self.vert[s_1] = self.vert[s_1] + s_0 if self.vert.get(s_1) else s_0
             if s_0 not in self.allvert:
@@ -71,8 +71,8 @@ class Graph:
         return path[::-1]
 
 if __name__ == '__main__':
-    #G = Graph(eval(input()))
-    G = Graph([[0, 3], [1, 3], [2, 3], [4, 3], [5, 4], [2, 6]])
+    G = Graph(eval(input()))
+    #G = Graph([[0, 3], [1, 3], [2, 3], [4, 3], [5, 4], [2, 6]])
     #print(G)
     print('Breadth-first search:\t', G.bfs(G.allvert[0]))
     print('Deepth-first search:\t', G.dfs([], G.allvert[0]))
