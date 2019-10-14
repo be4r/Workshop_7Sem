@@ -1,46 +1,48 @@
 #!/usr/bin/python3 -W ignore
-
+'''
+Plain(
+    as _p in FILENAME obviously says;
+    not to be confused with some PARALLEL, cos it isnt)
+version of MFCC extraction
+'''
 import os
 import librosa as lr
 import numpy as np
 
-def obrabot4ik(f, w, filename):
-    print(f)
-    with open(w,'w') as ww:
-        np.savetxt(ww, lr.feature.mfcc(lr.core.load(f)[0]))
+def obrabot4ik(readfile, savefile):
+    '''
+    Load <readfile> in librosa, extract MFCC, save 'em to <savefile>
+    '''
+    print(readfile)
+    with open(savefile, 'w') as www: #apparently, ww is not snake-cased
+        np.savetxt(www, lr.feature.mfcc(lr.core.load(readfile)[0]))
     #parallel
-            
+
 def check_layer(path, dest):
+    '''
+    Still recurcive, still does all the work
+    '''
     for filename in os.listdir(path) if path else os.listdir():
-        f = path + '/' + filename
-        w = dest + '/' + filename
-        if os.path.isdir(f):
-            os.mkdir(w)
-            check_layer(f, w)
+        readfile = path + '/' + filename
+        savefile = dest + '/' + filename
+        if os.path.isdir(readfile):
+            os.mkdir(savefile)
+            check_layer(readfile, savefile)
             #recursion
         else:
             #write this somewhere
-            obrabot4ik(f, w, filename)
+            obrabot4ik(readfile, savefile)
             #parallel
- 
+
 
 if __name__ == '__main__':
     print("Enter path to a folder with audiofiles: ", end="")
-    path = input()
+    PATH = input()
     try:
         os.mkdir('res')
-    except:
-        pass
+    except FileExistsError:
         #already exists, so what?
         os.system('rm -r res')
         os.mkdir('res')
-    
-    check_layer(path, 'res')
-    #print(res.get())
 
-'''try:
-    while True:
-        print(os.wait())
-except:
-    pass
-    '''
+    check_layer(PATH, 'res')
