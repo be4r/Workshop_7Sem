@@ -8,6 +8,8 @@ import librosa as lr
 import numpy as np
 #from numba import jit, vectorize, cuda
 
+proc_count = 8
+
 def obrabot4ik(readfile, endfile):
     '''
     Actually does stuff:
@@ -33,7 +35,7 @@ def check_layer(path, dest):
             #recursion
         else:
             #write this somewhere
-            yield readfile, endfile, filename
+            yield readfile, endfile
             #obrabot4ik(f, w, filename)
             #parallel
 
@@ -48,8 +50,9 @@ def main():
     os.system('rm -r res')
     os.mkdir('res')
 
-    pool = Pool(processes=8)
+    pool = Pool(processes=proc_count)
     pool.starmap(obrabot4ik, list(check_layer(path, 'res')))#.get())
+    pool.join()
 
 if __name__ == '__main__':
     main()
