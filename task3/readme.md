@@ -10,6 +10,6 @@ Total files: 36237
 
   Method  |  Files per minute (all runs, even incomplite ones)  |  Time  
 :---:     |       :---:        |   :---:
-Processes |   804, 836 fpm     |  43,34 min
-Plain     |  340, 334, 323 fpm |  106 min
+Processes |   804; 836 fpm     |  43.34 min
+Plain     |  340; 334; 323 fpm |  106 min
 Threads   |  **C O M I N G**   | **S O O N**
