@@ -1,8 +1,8 @@
 They seem to work if most cases.<br/>
 Rarely *_librosa_* is unable to open *m4a* file and just throws an exception. It usually countinues to work(except ~~(haha get it)~~ linear version) and translates most of input data.<br/>
 
- - **music\_p.py** - plain version, no parallelism
- - **music.py**   - paralleled on processes
+ - **music.py** - plain version, no parallelism
+ - **music\_p.py**   - paralleled on processes
  - **music\_t.py** - paralleled on threads
 
 ## ===================T-E-S-T--D-A-T-A===================  
