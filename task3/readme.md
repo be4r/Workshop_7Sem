@@ -6,7 +6,7 @@ Rarely *_librosa_* is unable to open *m4a* file and just throws an exception. It
  - **music\_t.py** - paralleled on threads
 
 ## ===================T-E-S-T--D-A-T-A===================  
-__Total files__: 36237 / 2931820 bytes / 2.8.G <br/>
+__Total files__: 36237 / 2931820 bytes / 2.8G <br/>
 __CPU__: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz<br/>
 
   Method    |  Files per minute (all runs, even incomplite ones)  |  Time  
