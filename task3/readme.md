@@ -7,10 +7,12 @@ Though might need a second go on them<br/>
 ## ===================T-E-S-T--D-A-T-A===================  
 Total files: 36237
 
-Processes:<br/>
-    43,34 min per run<br/>
-    804, 836 Files per minute
 
-Plain:<br/>
-    106 min per run<br/>
-    340, 334, 323 Files per minute
+  Method  |  Files per minute  |  Time  
+          |   on several runs  |        
+----------|--------------------|-----------
+Processes |   804, 836 fpm     |  43,34 min
+----------|--------------------|-----------
+Plain     |  340, 334, 323 fpm |  106 min
+----------|--------------------|-----------
+Threads   |      **C O M I N G S O O N**
