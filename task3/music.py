@@ -1,58 +1,48 @@
 #!/usr/bin/python3 -W ignore
 '''
-Process-oriented paralleling of MFCC extraction
+Plain(
+    as _p in FILENAME obviously says;
+    not to be confused with some PARALLEL, cos it isnt)
+version of MFCC extraction
 '''
-from multiprocessing import Pool
 import os
 import librosa as lr
 import numpy as np
-#from numba import jit, vectorize, cuda
 
-proc_count = 8
-
-def obrabot4ik(readfile, endfile):
+def obrabot4ik(readfile, savefile):
     '''
-    Actually does stuff:
-    loads <readfile>, extracts MFCC, saves 'em into <endfile>
+    Load <readfile> in librosa, extract MFCC, save 'em to <savefile>
     '''
-    core = lr.core.load(readfile)[0] #just drop sampling rate
     print(readfile)
-    #with open(w + '.npy', 'w') as r1:
-    #    np.savetxt(r1, lr.feature.mfcc(core)) # is this faster? is this better?
-    np.save(endfile + '.npy', lr.feature.mfcc(core))
+    with open(savefile, 'w') as www: #apparently, ww is not snake-cased
+        np.savetxt(www, lr.feature.mfcc(lr.core.load(readfile)[0]))
+    #parallel
 
 def check_layer(path, dest):
     '''
-    Recursive get-all-files-in-dir a.k.a `ls -R`
-    actually is a generator
+    Still recurcive, still does all the work
     '''
     for filename in os.listdir(path) if path else os.listdir():
         readfile = path + '/' + filename
-        endfile = dest + '/' + filename
+        savefile = dest + '/' + filename
         if os.path.isdir(readfile):
-            os.mkdir(endfile)
-            yield from check_layer(readfile, endfile)
+            os.mkdir(savefile)
+            check_layer(readfile, savefile)
             #recursion
         else:
             #write this somewhere
-            yield readfile, endfile
-            #obrabot4ik(f, w, filename)
+            obrabot4ik(readfile, savefile)
             #parallel
 
 
-def main():
-    '''
-    Well, main. Haven't used this one in a while.
-    Exists here for me to try calculating all of this on GPU(numba&cuda)
-    '''
-    print("Enter path to a folder with audiofiles: ", end="")
-    path = input()
-    os.system('rm -r res')
-    os.mkdir('res')
-
-    pool = Pool(processes=proc_count)
-    pool.starmap(obrabot4ik, list(check_layer(path, 'res')))#.get())
-    pool.join()
-
 if __name__ == '__main__':
-    main()
+    print("Enter path to a folder with audiofiles: ", end="")
+    PATH = input()
+    try:
+        os.mkdir('res')
+    except FileExistsError:
+        #already exists, so what?
+        os.system('rm -r res')
+        os.mkdir('res')
+
+    check_layer(PATH, 'res')
