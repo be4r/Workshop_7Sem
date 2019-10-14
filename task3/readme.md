@@ -5,8 +5,8 @@ Though might need a second go on them<br/>
  - **music.py**   - paralleled on processes
 
 ## ===================T-E-S-T--D-A-T-A===================  
-Total files: 36237
-CPU: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+Total files: 36237<br/>
+CPU: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz<br/>
 
   Method    |  Files per minute (all runs, even incomplite ones)  |  Time  
 :---:       |       :---:        |   :---:
