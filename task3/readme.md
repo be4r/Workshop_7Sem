@@ -7,10 +7,10 @@ Though might need a second go on them<br/>
 ## ===================T-E-S-T--D-A-T-A===================  
 Total files: 36237
 
-Processes:```<br/>
+Processes:<br/>
     43,34 min per run<br/>
-    804, 836 Files per minute```
+    804, 836 Files per minute
 
-Plain:```<br/>
+Plain:<br/>
     106 min per run<br/>
-    340, 334, 323 Files per minute```
+    340, 334, 323 Files per minute
