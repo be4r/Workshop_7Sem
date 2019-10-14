@@ -1,5 +1,5 @@
-Seemed to work when tested 'em last time.<br/>
-Though might need a second go on them<br/>
+They seem to work if most cases.<br/>
+Rarely *_librosa_* is unable to open *m4a* file and just throws an exception. It usually countinues to work(except~~(haha get it)~~ linear version) and translates most of input data.<br/>
 
  - **music\_p.py** - plain version, no parallelism
  - **music.py**   - paralleled on processes
@@ -16,4 +16,3 @@ Process x8  |  804; 836; 788 fpm |  43 min
 Threads x8  |  421; 419; 425 fpm |  91 min
 Process x16 |  683; 688; 684 fpm |  53 min
 Threads x16 |  379; 375; 374 fpm |  95 min
-
