@@ -3,10 +3,11 @@ Though might need a second go on them<br/>
 
  - **music\_p.py** - plain version, no parallelism
  - **music.py**   - paralleled on processes
+ - **music\_t.py** - paralleled on threads
 
 ## ===================T-E-S-T--D-A-T-A===================  
-Total files: 36237<br/>
-CPU: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz<br/>
+__Total files__: 36237<br/>
+__CPU__: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz<br/>
 
   Method    |  Files per minute (all runs, even incomplite ones)  |  Time  
 :---:       |       :---:        |   :---:
