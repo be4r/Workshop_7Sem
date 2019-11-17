@@ -31,17 +31,19 @@ def sendData(socket, mode = 'STAT', path = 'coreNLP/dataSet.csv'):
                 if kkk > 10:
                     break
 
+def main():
+    with socket.create_connection(("127.0.0.1", 30000)) as sock:
+        sendData(sock)#, mode="ENTI")
+        sock.sendall(b"")
+        result = ""
+        while True:
+            data =sock.recv(1024).decode("utf-8")
+            result += data
+            if data == "":
+                break
+        print("Recieved: \n")
+        rec= ast.literal_eval(result)
+        for i in rec:
+            print("\n\t", i, ":\n\t", rec[i])
 
-with socket.create_connection(("127.0.0.1", 30000)) as sock:
-    sendData(sock)#, mode="ENTI")
-    sock.sendall(b"")
-    result = ""
-    while True:
-        data =sock.recv(1024).decode("utf-8")
-        result += data
-        if data == "":
-            break
-    print("Recieved: \n")
-    rec= ast.literal_eval(result)
-    for i in rec:
-        print("\n\t", i, ":\n\t", rec[i])
+main()

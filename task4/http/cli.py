@@ -14,7 +14,7 @@ def sendData(socket, mode = 'STAT', path = 'coreNLP/dataSet.csv'):
         return 
 
     size = os.stat(path).st_size
-    size = 2395#8890
+    #size = 2395#8890
     initial = "GET /" + mode + " HTTP/3.0\nContent-length: " + str(size) + "\nConnection: keep-alive\n\n"
     
     socket.send(initial.encode("utf-8"))
