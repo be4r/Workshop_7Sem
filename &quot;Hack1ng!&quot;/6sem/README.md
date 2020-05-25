@@ -53,7 +53,7 @@ ____
 
 # SQL
 
-1. Lab: SQL injection vulnerability allowing login bypass
+## Lab: SQL injection vulnerability allowing login bypass
 
 Манипуляции с productId не дают положительных результатов, так как, по видимому, значение данного параметра экранируется. Замечаем форму логина. В поле Username вводим:
 ```
@@ -63,7 +63,7 @@ administrator' or '1'='1 --
 ### ***"Please fill out this field!"***.
 ____
 
-2. Lab: SQL injection UNION attack, finding a column containing text
+## Lab: SQL injection UNION attack, finding a column containing text
 
 Выбрав категорию ```'+or+1=1--```, замечаем, что нам отобразились все продукты, что говорит о наличии уязвимости SQLi.<br>
 Определяем количество столбцов возвращаемых основным запросом:
