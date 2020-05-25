@@ -8,6 +8,7 @@
 ```
 <br>
 и ее вызове &res; в скрытом параметре productId.
+
 ____
 
 ## Lab: Exploiting XXE using external entities to retrieve files
